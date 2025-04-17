@@ -80,7 +80,7 @@ export default function QuizApp({ questions }) {
   return (
     <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
       <div className="bg-white p-4 rounded shadow-lg" style={{ maxWidth: '600px', width: '100%' }}>
-        <h2 className="text-lg font-semibold mb-4">Câu {currentQuestion + 1}:</h2>
+        <h4 className="text-lg font-semibold mb-4">Câu {currentQuestion + 1}:</h4>
         <p className="mb-4 text-lg">{current.question}</p>
         <div className="mb-4">
           {current.answer_options.map((option, index) => (

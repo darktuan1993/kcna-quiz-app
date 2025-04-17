@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import QuizStart from "./components/QuizStart";
+import QuizApp from "./components/KcnaQuizApp";
+import { questions } from "./components/quizData";
 
 function App() {
+  const [start, setStart] = useState(false);
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
+
+  const handleStart = (count) => {
+    const shuffled = [...questions].sort(() => 0.5 - Math.random());
+    const picked = shuffled.slice(0, count);
+    setSelectedQuestions(picked);
+    setStart(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      {!start ? (
+        <QuizStart onStart={handleStart} />
+      ) : (
+        <QuizApp questions={selectedQuestions} />
+      )}
     </div>
   );
 }

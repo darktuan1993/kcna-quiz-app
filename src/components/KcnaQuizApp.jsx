@@ -52,7 +52,7 @@ export default function QuizApp({ questions }) {
     if (selectedAnswer === option) return "text-danger"; // đỏ chữ nếu chọn sai
     return "";
   };
-  
+
 
   if (shuffledQuestions.length === 0) return <div>Loading questions...</div>;
 
@@ -61,12 +61,16 @@ export default function QuizApp({ questions }) {
       <div className="container text-center d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
         <div className="bg-white p-4 rounded shadow-lg" style={{ maxWidth: '600px', width: '100%' }}>
           <h2 className="text-xl font-semibold mb-4">Kết quả của bạn</h2>
-          <p className="text-lg">Bạn đã trả lời đúng {score} / {shuffledQuestions.length} câu hỏi.</p>
+          <p className="text-lg mb-2">Bạn đã trả lời đúng {score} / {shuffledQuestions.length} câu hỏi.</p>
+          {score >= 43 && (
+            <p className="text-success fw-bold mb-2">🎉 Bạn đã đạt trên 70%!</p>
+          )}
           <button onClick={() => window.location.reload()} className="btn btn-primary mt-4">
-            Làm lại
+            Thử lại
           </button>
         </div>
       </div>
+
     );
   }
 

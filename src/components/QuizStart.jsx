@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function QuizStart({ onStart }) {
   const [numQuestions, setNumQuestions] = useState(5);
-  const MAX_QUESTIONS = 143;
+  const MAX_QUESTIONS = 60;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ export default function QuizStart({ onStart }) {
             type="submit"
             className="btn btn-primary w-50"
           >
-            Làm bài
+            TEST
           </button>
         </form>
 

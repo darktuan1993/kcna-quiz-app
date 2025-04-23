@@ -97,6 +97,11 @@ export default function QuizApp({ questions }) {
             </div>
           ))}
         </div>
+        {showAnswerFeedback && current.explanation && (
+          <div className="alert alert-info mt-3" role="alert">
+            <strong>Giải thích:</strong> {current.explanation}
+          </div>
+        )}
         <div className="d-flex justify-content-end">
           <button
             onClick={handleNextQuestion}
